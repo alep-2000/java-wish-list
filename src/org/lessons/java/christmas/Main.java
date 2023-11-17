@@ -44,5 +44,24 @@ public class Main {
 			if(strNuovoRegalo.equals("no")) break;
 		}
 		
+		System.out.println("Come vuoi ordinare la lista? (nome | destinatario)");
+		String strOrdinamento = in.nextLine().toLowerCase();
+
+		
+		
+		if (strOrdinamento.equals("nome")) {
+
+			Collections.sort(lista, Comparator.comparing(regalo -> regalo.getNomeRegalo()));
+			
+		} else {
+			
+			Collections.sort(lista, Comparator.comparing(regalo -> regalo.getDestinatario()));
+		}
+		
+		for(Regalo regalo : lista) {
+			System.out.println(regalo);
+		}
+		
+		in.close();
 	}
 }
